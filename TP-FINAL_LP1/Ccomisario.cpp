@@ -1,6 +1,6 @@
 #include "Ccomisario.h"
 #include <sstream>
-Ccomisario::Ccomisario(string _nombre, string _dni) :Cpersona(_nombre, _dni)
+Ccomisario::Ccomisario(string _nombre, string _dni):Cpersona(_nombre, _dni)
 {
     TodoEnOrden = true;
 }
