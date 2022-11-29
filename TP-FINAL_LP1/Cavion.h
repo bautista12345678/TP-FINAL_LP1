@@ -19,7 +19,7 @@ private:
 	clista<cCodigo>* listaCodigos;
 	clista<Cpasajero>* prision;
 	int NumeroDeAsiento;
-	Ccomisario * marshal;
+	Ccomisario* marshal;
 public:
 	Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m);
 	~Cavion();

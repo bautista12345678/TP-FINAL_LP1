@@ -2,6 +2,7 @@
 #include<string>
 #include "cCodigo.h"
 #include"Cazafata.h"
+#include "cpersona.h"
 using namespace std;
 enum class EnumPrivilegios
 {

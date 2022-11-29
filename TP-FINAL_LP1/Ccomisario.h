@@ -1,5 +1,4 @@
 #pragma once
-#include"Cpersona.h"
 #include"Cpasajero.h"
 #include "Cavion.h"
 class Ccomisario : public Cpersona
