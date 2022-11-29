@@ -115,7 +115,7 @@ int main() {
 		cout << e.what() << endl;
 	}
 
-	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1,);
+	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1);
 	avion1->getListaCompleta()->listar();
 	//-----------------------------------------------------------
 	cout << "llamomos a una azafata que esta no disponilble" << endl;

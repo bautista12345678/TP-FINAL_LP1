@@ -1,8 +1,9 @@
 #pragma once
 #include"Cpersona.h"
-#include "Cpasajero.h"
+//#include "Cpasajero.h"
 #include "Cpiloto.h"
 class Cpiloto;
+class Cpasajero;
 class Cazafata :public  Cpersona
 {
 private:
@@ -17,7 +18,7 @@ public:
 	void llevarComidaPiloto();
 	void llevarBebidaPiloto();
 	void realizarAnuncio(string _m);
-	void realizarAviso(Cpasajero* c, string msg);
+	string realizarAviso();
 	void AtenderLlamados();
 	bool azafataOcupada();
 	string to_string();

@@ -51,7 +51,7 @@ void Cpiloto::pedirAnuncio(string m, Cazafata* a)
 void Cpiloto::pedirAviso(Cpasajero* p, string msg, Cazafata* a)
 {
 	this->llamarAzafata(a);
-	a->realizarAviso(p, msg);
+	a->realizarAviso();
 }
 
 void Cpiloto::pedirBebida(Cazafata* a)

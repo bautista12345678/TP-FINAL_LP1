@@ -168,8 +168,9 @@ void Cpasajero::llamarAzafata(Cazafata* a)
 
 }
 
-void Cpasajero::recibirMensaje(string m)
+void Cpasajero::recibirMensaje(Cazafata* a)
 {
-	cout << "mensaje recibido:" << m << endl;
+
+	cout << "mensaje recibido:" << a->realizarAviso()<< endl;
 }
 

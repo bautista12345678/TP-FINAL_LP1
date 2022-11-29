@@ -46,7 +46,7 @@ public:
 	void dormir();
 	void despertarse();
 	void llamarAzafata(Cazafata* a);
-	void recibirMensaje(string m);
+	void recibirMensaje(Cazafata* a);
 	virtual string to_string() = 0;
 	virtual void imprimir() = 0;
 };

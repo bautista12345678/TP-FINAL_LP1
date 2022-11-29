@@ -48,9 +48,10 @@ void Cazafata::realizarAnuncio(string _m)
 }
 
 
-void Cazafata::realizarAviso(Cpasajero* c, string msg)
+string Cazafata::realizarAviso()
 {
-	c->recibirMensaje(msg);
+	string msj = "mensaje";
+	return msj;
 }
 
 void Cazafata::AtenderLlamados()
