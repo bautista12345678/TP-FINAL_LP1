@@ -2,7 +2,7 @@
 #include<string>
 #include"Cpasajero.h"
 #include "clista.h"
-#include "Ccomisario.h"
+class Ccomisario;
 using namespace std;
 
 class Cavion
