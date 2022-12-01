@@ -11,11 +11,35 @@ Cpasajero::Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c
     Comida = false;
     Baño = false;
 	Asiento = _Asiento;
+	cont_ayuda = 0;
+	cont_bebida = 0;
+	cont_comida = 0;
+	cont_mensaje = 0;
 
 }
 
 Cpasajero::~Cpasajero()
 {
+}
+
+int Cpasajero::getcont_bebida()
+{
+	return cont_bebida;
+}
+
+int Cpasajero::getcont_comida()
+{
+	return cont_comida;
+}
+
+int Cpasajero::getcont_mensaje()
+{
+	return cont_mensaje;
+}
+
+int Cpasajero::getcont_ayuda()
+{
+	return cont_ayuda;
 }
 
 
@@ -51,6 +75,7 @@ bool Cpasajero::PedirAyuda(Cazafata *a)
 	{
 		Descompensacion = EnumEstadoDeDescompensacion::SaludRegular;
 		return true;
+		cont_ayuda++;
 	}
 	else
 	{
@@ -131,7 +156,9 @@ bool Cpasajero::pedirBebida(Cazafata* a)
 		a->llevarBebida();
 		Bebida = true;
 		a->setDisponibilidad(true);
+		cont_bebida++;
 		return true;
+		
 	}
 	else { return false; }
 }
@@ -150,6 +177,7 @@ bool Cpasajero::pedirComida(Cazafata* a)
 	a->llevarComida();
 	Comida = true;
 	a->setDisponibilidad(true);
+	cont_comida++;
 	return true;
 	}
 	else { return false; }
@@ -200,6 +228,7 @@ bool Cpasajero::recibirMensaje(Cazafata* a)
 {
 	
 	cout << "mensaje recibido:" << a->realizarAviso()<< endl;
+	cont_mensaje++;
 	return true;
 }
 

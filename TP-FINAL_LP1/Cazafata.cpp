@@ -20,6 +20,11 @@ bool Cazafata::getDisponibilidad()
 	return Disponibilidad;
 }
 
+int Cazafata::getEventos()
+{
+	return eventos;
+}
+
 void Cazafata::atenderPaciente()
 {
 	cout << "ayudando pasajero" << endl;

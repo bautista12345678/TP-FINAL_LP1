@@ -15,6 +15,7 @@ public:
 	~Cazafata();
 	void setDisponibilidad(bool _Disponibilidad);
 	bool getDisponibilidad();
+	int getEventos();
 	void atenderPaciente();
 	void llevarComida();
 	void llevarBebida();

@@ -1,7 +1,7 @@
 #include "Cavion.h"
 int Cavion::cantidadDeAsientos = 0;
 int Cavion::cont_id = 0;
-int Cavion::n_eventos = 0;
+//int Cavion::n_eventos = 0;
 Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n) :id(cont_id + 1)
 {
 	marshal = m;
@@ -32,14 +32,14 @@ Cavion::~Cavion()
 	delete listaCodigos;
 }
 
-int Cavion::getn_eventos()
+/*int Cavion::getn_eventos()
 {
 	for (int i = 0; i < ListaDePasajeros->getcantidad(); i++)
 	{
 		n_eventos = n_eventos + 1;
 	}
 	return n_eventos;
-}
+}*/
 
 string* Cavion::getListaEventos()
 {
@@ -72,7 +72,7 @@ clista<Casiento>* Cavion::getListaAsientos()
 }
 
 
-void Cavion::agregar(Cazafata *a)
+/*void Cavion::agregar(Cazafata *a)
 {
 	string* aux1 = new string[n_eventos + 1];
 	for (int i = 0; i < n_eventos; i++)
@@ -132,7 +132,7 @@ void Cavion::agregar(Cazafata *a)
 		}
 	}
 	
-}
+}*/
 
 void Cavion::comparaAmbasListas(clista<Cpasajero>* ListaP)
 {

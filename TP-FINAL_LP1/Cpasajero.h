@@ -26,10 +26,18 @@ private:
 	bool Comida;
 	bool Baño;
 	bool Dormir;
+	int cont_bebida;
+	int cont_comida;
+	int cont_mensaje;
+	int cont_ayuda;
 	Casiento *Asiento;
 public:
 	Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento);
 	~Cpasajero();
+	int getcont_bebida();
+	int getcont_comida();
+	int getcont_mensaje();
+	int getcont_ayuda();
 	bool getBuenaConducta();
 	void someter();
 	void setconduta(bool _conducta);

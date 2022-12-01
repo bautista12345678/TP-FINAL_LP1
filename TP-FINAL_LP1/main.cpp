@@ -173,6 +173,22 @@ int main() {
 
 	pasajero4->pedirChampagne();
 
+	cout << "cantidad de eventos:" << azafata1->getEventos() + azafata2->getEventos() << endl;
+	for (int i = 0; i < avion1->getListaDePasajeros()->getcantidad(); i++)
+	{
+		cout << "eventos del pasajero n" << i << endl;
+		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << "pidio ayuda" << avion1->getListaDePasajeros()->getLista()[i]->getcont_ayuda() << "veces"<<endl;
+		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << "pidio comida" << avion1->getListaDePasajeros()->getLista()[i]->getcont_comida() << "veces" << endl;
+		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << "pidio bebida" << avion1->getListaDePasajeros()->getLista()[i]->getcont_bebida() << "veces" << endl;
+		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << "recibio mensajes" << avion1->getListaDePasajeros()->getLista()[i]->getcont_mensaje() << "veces" << endl;
+	
+
+
+	}
+
+
+
+
 
 	/*avion1->getn_eventos();
 	for (int i = 0; i < avion1->getn_eventos(); i++)
