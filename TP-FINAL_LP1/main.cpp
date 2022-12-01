@@ -174,7 +174,12 @@ int main() {
 	pasajero4->pedirChampagne();
 
 
-	
+	/*avion1->getn_eventos();
+	for (int i = 0; i < avion1->getn_eventos(); i++)
+	{
+		cout<<avion1->getListaEventos()[i]<<endl;
+	}
+	*/
 
 
 	return 0;
