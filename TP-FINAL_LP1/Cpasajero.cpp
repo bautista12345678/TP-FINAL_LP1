@@ -174,3 +174,8 @@ void Cpasajero::recibirMensaje(Cazafata* a)
 	cout << "mensaje recibido:" << a->realizarAviso()<< endl;
 }
 
+Casiento* Cpasajero::getAsiento()
+{
+	return Asiento;
+}
+

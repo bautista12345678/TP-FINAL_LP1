@@ -42,11 +42,11 @@ int main() {
 	CprimeraClase* pasajero5 = new CprimeraClase("maria", "1235", EnumPrivilegios::primaveraClase, codigo5);
 
 	//------------------------- imprimiendo pasajeros -----------------------
-	cout << pasajero1->to_string() << endl;
-	cout << pasajero2->to_string() << endl;
-	cout << pasajero3->to_string() << endl;
-	cout << pasajero4->to_string() << endl;
-	cout << pasajero5->to_string() << endl;
+	pasajero1->imprimir();
+	pasajero2->imprimir();
+	pasajero3->imprimir();
+	pasajero4->imprimir();
+	pasajero5->imprimir();
 	//--------------------------------------
 	//--------------------creando piloto, copiloto y comisario -----------------------------------
 
@@ -106,8 +106,8 @@ int main() {
 		cout << e.what() << endl;
 	}
 
-	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1);
-	avion1->getListaCompleta()->listar();
+	//Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1,30);
+	//avion1->getListaCompleta()->listar();
 	//-----------------------------------------------------------
 	cout << "llamomos a una azafata que esta no disponilble" << endl;
 	pasajero1->pedirBebida(azafata2);
@@ -131,24 +131,24 @@ int main() {
 	piloto1->pilotear();
 	//--------------------------- comisario ------------------------
 	comisario1->comisario_pregunta();
-	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == false)
+	/*if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == false)
 	{
 		cout << "el pasajero esta encarcelado" << endl;
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
-	}
+	}*/
 	cout << endl;
 	cout << "--- despues de haber comenzado el vuelo el comisario nuevamente pregunta si todo esta bien ---" << endl;
 	cout << endl;
 	pasajero2->setconduta(true); //un pasajero se porto mal
-	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == true)
+	/*if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == true)
 	{
 		cout << "el pasajero esta encarcelado" << endl;
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
-	}
+	}*/
 
 
 	pasajero4->pedirChampagne();

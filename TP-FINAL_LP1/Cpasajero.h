@@ -3,6 +3,7 @@
 #include "cCodigo.h"
 #include"Cazafata.h"
 #include "cpersona.h"
+#include "Casiento.h"
 using namespace std;
 enum class EnumPrivilegios
 {
@@ -24,6 +25,7 @@ private:
 	bool Comida;
 	bool Baño;
 	bool Dormir;
+	Casiento *Asiento;
 public:
 	Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c);
 	~Cpasajero();
@@ -47,6 +49,7 @@ public:
 	void despertarse();
 	void llamarAzafata(Cazafata* a);
 	void recibirMensaje(Cazafata* a);
+	Casiento *getAsiento();
 	virtual string to_string() = 0;
 	virtual void imprimir() = 0;
 };

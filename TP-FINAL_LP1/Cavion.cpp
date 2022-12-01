@@ -1,12 +1,14 @@
 #include "Cavion.h"
 int Cavion::cantidadDeAsientos = 0;
 int Cavion::cont_id = 0;
-Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m) :id(cont_id + 1)
+Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n) :id(cont_id + 1)
 {
 	marshal = m;
 	ListaCompleta = _ListaCompleta;
 	ListaDePasajeros = _ListaDePasajeros;
 	listaCodigos = _listaCodigos;
+	NumeroDeAsiento = n;
+	ListaAsientos = _ListaAsientos;
 }
 
 Cavion::~Cavion()
@@ -48,6 +50,11 @@ clista<Cpersona>* Cavion::getListaCompleta()
 	return ListaCompleta;
 }
 
+clista<Casiento>* Cavion::getListaAsientos()
+{
+	return ListaAsientos;
+}
+
 void Cavion::comparaAmbasListas(clista<Cpasajero>* ListaP)
 {
 	for (int i = 0; i < ListaDePasajeros->getcantidad(); i++)
@@ -68,6 +75,19 @@ void Cavion::comparaAmbasListas(clista<Cpasajero>* ListaP)
 void Cavion::SubirAlAvion(Cpasajero* p)
 {
 	(*ListaDePasajeros) + (p);
+	for (int i = 0; i < ListaAsientos->getcantidad(); i++)
+	{
+		if (ListaAsientos->getLista()[i]->getfila() == p->getAsiento()->getfila() &&
+			ListaAsientos->getLista()[i]->getcolumna() == p->getAsiento()->getcolumna())
+		{
+			cout << "asiento ocupado" << endl;
+			return;
+		}
+		else {
+			(*ListaAsientos) + (p->getAsiento());
+			return;
+		}
+	}
 }
 
 void Cavion::BajarAlAvion(Cpasajero* p)
