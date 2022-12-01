@@ -2,12 +2,15 @@
 #include"Cpersona.h"
 //#include "Cpasajero.h"
 #include "Cpiloto.h"
+#include "clista.h"
 class Cpiloto;
 class Cpasajero;
 class Cazafata :public  Cpersona
 {
 private:
 	bool Disponibilidad;
+	static int eventos;
+	string ListaEventos[1000];
 public:
 	Cazafata(string _nombre, string _dni, bool _Disponibilidad);
 	~Cazafata();
@@ -22,6 +25,7 @@ public:
 	string realizarAviso();
 	void AtenderLlamados();
 	bool azafataOcupada();
+	string getListaEventos();
 	string to_string();
 	void imprimir();
 

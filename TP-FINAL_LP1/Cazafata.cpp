@@ -1,8 +1,13 @@
 #include "Cazafata.h"
 #include <sstream>
-Cazafata::Cazafata(string _nombre, string _dni, bool _Disponibilidad) :Cpersona(_nombre, _dni)
+int Cazafata::eventos = 0;
+Cazafata::Cazafata(string _nombre, string _dni, bool _Disponibilidad):Cpersona(_nombre, _dni)
 {
 	Disponibilidad = _Disponibilidad;
+	for (int i = 0; i < 1000; i++)
+	{
+	   ListaEventos[i] = "NULL";
+	}
 }
 Cazafata::~Cazafata()
 {
@@ -61,7 +66,11 @@ string Cazafata::realizarAviso()
 
 void Cazafata::AtenderLlamados()
 {
+	if (azafataOcupada() == true)
+	{
 	Disponibilidad = false;
+	eventos = eventos + 1;
+    }
 }
 
 bool Cazafata::azafataOcupada()
@@ -76,6 +85,10 @@ bool Cazafata::azafataOcupada()
 		cout << "asafasta no disponible" << endl;
 		return false;
 	}
+}
+string Cazafata::getListaEventos()
+{
+	return ListaEventos[1000];
 }
 
 string Cazafata::to_string()

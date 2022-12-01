@@ -15,6 +15,9 @@ using namespace std;
 int main() {
 
 	//----------------creando azafatas--------------------------------
+
+	
+
 	Cazafata* azafata1 = new Cazafata("soledad", "94445678", true);
 	Cazafata* azafata2 = new Cazafata("lucho", "12345678", true);
     

@@ -46,13 +46,16 @@ EnumEstadoDeDescompensacion Cpasajero::getEstado()
 
 void Cpasajero::PedirAyuda(Cazafata *a)
 {
-	if (a->getDisponibilidad() == false)
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
 	{
-		cout << "la azafata esta ocupada." << endl;
-	}
-	else {
 		Descompensacion = EnumEstadoDeDescompensacion::SaludRegular;
+		for (int i = 0; i < 1000; i++)
+		{
+			if(a->getListaEventos()[i]=="")
+		}
 	}
+	
 }
 
 void Cpasajero::terminarAyuda(Cazafata* a)
@@ -122,17 +125,12 @@ bool Cpasajero::getBaño()
 }
 void Cpasajero::pedirBebida(Cazafata* a)
 {
-	if (a->getDisponibilidad() == true)
-	{
+	
 		this->llamarAzafata(a);
 		a->llevarBebida();
 		Bebida = true;
 		a->setDisponibilidad(true);
-	}
-	else
-	{
-		cout << "la zafata no esta disponible. " << endl;
-	}
+	
 }
 
 void Cpasajero::terminarBeber()
@@ -142,17 +140,13 @@ void Cpasajero::terminarBeber()
 
 void Cpasajero::pedirComida(Cazafata* a)
 {
-	if (a->getDisponibilidad() == true)
-	{
+
 		this->llamarAzafata(a);
 		a->llevarComida();
 		Comida = true;
 		a->setDisponibilidad(true);
-	}
-	else
-	{
-		cout << "la azafata no esta disponible" << endl;
-	}
+	
+	
 
 }
 

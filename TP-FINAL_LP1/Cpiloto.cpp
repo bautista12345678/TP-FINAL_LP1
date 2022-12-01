@@ -18,16 +18,7 @@ void Cpiloto::setcomida(bool _c)
 
 void Cpiloto::setbebida(bool _b)
 {
-	if (_b == false)
-	{
-		cout << "termino de beber. " << endl;
-		bebida = _b;
-	}
-	else
-	{
-		cout << "esta bebiendo. " << endl;
-		bebida = _b;
-	}
+	bebida = _b;
 }
 
 void Cpiloto::pilotear()
@@ -56,27 +47,18 @@ void Cpiloto::pedirAviso(Cpasajero* p, string msg, Cazafata* a)
 
 void Cpiloto::pedirBebida(Cazafata* a)
 {
-	if (a->getDisponibilidad() == true)
-	{
+	
 		this->llamarAzafata(a);
 		a->llevarBebidaPiloto();
 		setbebida(true);//?????
-	}
-	else {
-		cout << "esta ocupada" << endl;
-	}
+	
 }
 
 void Cpiloto::pedirComida(Cazafata* a)
 {
-	if (a->getDisponibilidad() == true)
-	{
-		this->llamarAzafata(a);
+	this->llamarAzafata(a);
 		a->llevarComidaPiloto();
-	}
-	else {
-		cout << "esta ocupada" << endl;
-	}
+	
 
 }
 
