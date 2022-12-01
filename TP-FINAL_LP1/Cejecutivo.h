@@ -5,7 +5,7 @@ class Cejecutivo :public Cturista
 private:
 	bool notebook;
 public:
-	Cejecutivo(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c);
+	Cejecutivo(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento);
 	~Cejecutivo();
 	void prenderNotebooks();
 	bool getnotebook();

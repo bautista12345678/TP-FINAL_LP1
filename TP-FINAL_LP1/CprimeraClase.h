@@ -6,7 +6,7 @@ private:
 	bool Masaje;
 	bool Champagne;
 public:
-	CprimeraClase(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c);
+	CprimeraClase(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento);
 	~CprimeraClase();
 	void pedirMasaje();
 	void terminarMasaje();

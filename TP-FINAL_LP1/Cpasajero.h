@@ -15,6 +15,7 @@ enum class EnumEstadoDeDescompensacion
 };
 class Cpasajero : public Cpersona
 {
+	friend class Casiento;
 private:
 	EnumEstadoDeDescompensacion Descompensacion;
 	EnumPrivilegios TipoDePrivilegio;
@@ -27,12 +28,15 @@ private:
 	bool Dormir;
 	Casiento *Asiento;
 public:
-	Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c);
+	Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento);
 	~Cpasajero();
 	bool getBuenaConducta();
 	void someter();
 	void setconduta(bool _conducta);
 	cCodigo* getcodigo();
+	EnumEstadoDeDescompensacion getEstado();
+	void PedirAyuda(Cazafata* a);
+	void terminarAyuda(Cazafata* a);
 	void setComida(bool _Comida);
 	void setBebida(bool _Bebida);
 	bool getComida();

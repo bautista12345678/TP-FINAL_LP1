@@ -1,6 +1,6 @@
 #include "Cpasajero.h"
 #include <sstream>
-Cpasajero::Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c) :Cpersona(_nombre, _dni)
+Cpasajero::Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento) :Cpersona(_nombre, _dni)
 {
     TipoDePrivilegio = p;
     codigo = _c;
@@ -10,6 +10,7 @@ Cpasajero::Cpasajero(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c
     Bebida = false;
     Comida = false;
     Baño = false;
+	Asiento = _Asiento;
 
 }
 
@@ -36,6 +37,30 @@ void Cpasajero::setconduta(bool _conducta)
 cCodigo* Cpasajero::getcodigo()
 {
     return codigo;
+}
+
+EnumEstadoDeDescompensacion Cpasajero::getEstado()
+{
+	return 	Descompensacion;
+}
+
+void Cpasajero::PedirAyuda(Cazafata *a)
+{
+	if (a->getDisponibilidad() == false)
+	{
+		cout << "la azafata esta ocupada." << endl;
+	}
+	else {
+		Descompensacion = EnumEstadoDeDescompensacion::SaludRegular;
+	}
+}
+
+void Cpasajero::terminarAyuda(Cazafata* a)
+{
+	if (Descompensacion == EnumEstadoDeDescompensacion::SaludRegular)
+	{
+		a->setDisponibilidad(true);
+	}
 }
 
 /*string Cpasajero::to_string()

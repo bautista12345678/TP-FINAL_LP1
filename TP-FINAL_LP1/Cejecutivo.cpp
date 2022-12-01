@@ -3,7 +3,7 @@
 
 
 
-Cejecutivo::Cejecutivo(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c) :Cturista(_nombre, _dni, p, _c)
+Cejecutivo::Cejecutivo(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento) :Cturista(_nombre, _dni, p, _c, _Asiento)
 {
 	notebook = false;
 }

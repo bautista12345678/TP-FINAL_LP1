@@ -1,7 +1,7 @@
 #include "CprimeraClase.h"
 #include <sstream>
 
-CprimeraClase::CprimeraClase(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c) :Cejecutivo(_nombre, _dni, p, _c)
+CprimeraClase::CprimeraClase(string _nombre, string _dni, EnumPrivilegios p, cCodigo* _c, Casiento* _Asiento) :Cejecutivo(_nombre, _dni, p, _c, _Asiento)
 {
 
 	Masaje = false;

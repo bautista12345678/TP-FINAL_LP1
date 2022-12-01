@@ -20,13 +20,30 @@ int main() {
     
 	azafata1->imprimir();
 	azafata2->imprimir();
+
+//-----------------creo asientos----------------------------------------
+
+	Casiento* asiento1 = new Casiento();
+	Casiento* asiento2 = new Casiento();
+	Casiento* asiento3 = new Casiento();
+	Casiento* asiento4 = new Casiento();
+	Casiento* asiento5 = new Casiento();
+
+	clista<Casiento>* ListaAsientos = new clista<Casiento>(30);
+
+	(*ListaAsientos) + asiento1;
+	(*ListaAsientos) + asiento2;
+	(*ListaAsientos) + asiento3;
+	(*ListaAsientos) + asiento4;
+	(*ListaAsientos) + asiento5;
+
 	
 //---------------------- generando los codigos de cada pasajero
-	cCodigo* codigo1 = new cCodigo("TU", "1234", 1, "a");
-	cCodigo* codigo2 = new cCodigo("BS", "1233", 2, "a");
-	cCodigo* codigo3 = new cCodigo("BS", "1232", 3, "a");
-	cCodigo* codigo4 = new cCodigo("PC", "1231", 4, "b");
-	cCodigo* codigo5 = new cCodigo("PC", "1235", 5, "b");
+	cCodigo* codigo1 = new cCodigo("TU", "1234", asiento1->getfila(),asiento1->getcolumna());
+	cCodigo* codigo2 = new cCodigo("BS", "1233", asiento2->getfila(), asiento2->getcolumna());
+	cCodigo* codigo3 = new cCodigo("BS", "1232", asiento3->getfila(), asiento3->getcolumna());
+	cCodigo* codigo4 = new cCodigo("PC", "1231", asiento4->getfila(), asiento4->getcolumna());
+	cCodigo* codigo5 = new cCodigo("PC", "1235", asiento5->getfila(), asiento5->getcolumna());
 	     //--------------------- imprimir codigos -------------------
 	codigo1->imprimir();
 	codigo2->imprimir();
@@ -35,11 +52,11 @@ int main() {
 	codigo5->imprimir();
 //-------------------- crendo los pasajeros----------------
 
-	Cturista* pasajero1 = new Cturista("lucho", "1234", EnumPrivilegios::turista, codigo1);
-	Cejecutivo* pasajero2 = new Cejecutivo("jose", "1233", EnumPrivilegios::ejecutivo, codigo2);
-	Cejecutivo* pasajero3 = new Cejecutivo("pedro", "1232", EnumPrivilegios::ejecutivo, codigo3);
-	CprimeraClase* pasajero4 = new CprimeraClase("anais", "1231", EnumPrivilegios::primaveraClase, codigo4);
-	CprimeraClase* pasajero5 = new CprimeraClase("maria", "1235", EnumPrivilegios::primaveraClase, codigo5);
+	Cturista* pasajero1 = new Cturista("lucho", "1234", EnumPrivilegios::turista, codigo1,asiento1);
+	Cejecutivo* pasajero2 = new Cejecutivo("jose", "1233", EnumPrivilegios::ejecutivo, codigo2,asiento2);
+	Cejecutivo* pasajero3 = new Cejecutivo("pedro", "1232", EnumPrivilegios::ejecutivo, codigo3,asiento3);
+	CprimeraClase* pasajero4 = new CprimeraClase("anais", "1231", EnumPrivilegios::primaveraClase, codigo4,asiento4);
+	CprimeraClase* pasajero5 = new CprimeraClase("maria", "1235", EnumPrivilegios::primaveraClase, codigo5,asiento5);
 
 	//------------------------- imprimiendo pasajeros -----------------------
 	pasajero1->imprimir();
@@ -47,7 +64,7 @@ int main() {
 	pasajero3->imprimir();
 	pasajero4->imprimir();
 	pasajero5->imprimir();
-	//--------------------------------------
+	
 	//--------------------creando piloto, copiloto y comisario -----------------------------------
 
 	Cpiloto* piloto1 = new Cpiloto("bau", "2242355");
@@ -106,8 +123,8 @@ int main() {
 		cout << e.what() << endl;
 	}
 
-	//Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1,30);
-	//avion1->getListaCompleta()->listar();
+	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1,ListaAsientos,30);
+	avion1->getListaCompleta()->listar();
 	//-----------------------------------------------------------
 	cout << "llamomos a una azafata que esta no disponilble" << endl;
 	pasajero1->pedirBebida(azafata2);
@@ -131,24 +148,24 @@ int main() {
 	piloto1->pilotear();
 	//--------------------------- comisario ------------------------
 	comisario1->comisario_pregunta();
-	/*if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == false)
+	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == false)
 	{
 		cout << "el pasajero esta encarcelado" << endl;
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
-	}*/
+	}
 	cout << endl;
 	cout << "--- despues de haber comenzado el vuelo el comisario nuevamente pregunta si todo esta bien ---" << endl;
 	cout << endl;
 	pasajero2->setconduta(true); //un pasajero se porto mal
-	/*if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == true)
+	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == true)
 	{
 		cout << "el pasajero esta encarcelado" << endl;
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
-	}*/
+	}
 
 
 	pasajero4->pedirChampagne();

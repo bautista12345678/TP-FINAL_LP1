@@ -18,6 +18,11 @@ bool Cazafata::getDisponibilidad()
 	return Disponibilidad;
 }
 
+void Cazafata::atenderPaciente()
+{
+	cout << "ayudando pasajero" << endl;
+}
+
 void Cazafata::llevarComida()
 {
 	cout << "llevando comida" << endl;
