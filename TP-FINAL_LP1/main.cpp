@@ -16,33 +16,24 @@ int main() {
 
 	//----------------creando azafatas--------------------------------
 	Cazafata* azafata1 = new Cazafata("soledad", "94445678", true);
-	Cazafata* azafata2 = new Cazafata("lucho", "12345678", false);
-
-	cout << azafata1->to_string() << endl;
-	cout << azafata2->to_string() << endl;
-	//----------------------------------------------------------------
-
-	/*Cejecutivo* ejecutivo1 = new Cejecutivo();
-	CprimeraClase* primeraClase1 = new CprimeraClase();
-	Cturista* turista1 = new Cturista();
-	Cejecutivo* ejecutivo2 = new Cejecutivo();
-	CprimeraClase* primerClase2 = new CprimeraClase();*/
-
-	//---------------------- generando los codigos de cada pasajero
+	Cazafata* azafata2 = new Cazafata("lucho", "12345678", true);
+    
+	azafata1->imprimir();
+	azafata2->imprimir();
+	
+//---------------------- generando los codigos de cada pasajero
 	cCodigo* codigo1 = new cCodigo("TU", "1234", 1, "a");
 	cCodigo* codigo2 = new cCodigo("BS", "1233", 2, "a");
 	cCodigo* codigo3 = new cCodigo("BS", "1232", 3, "a");
 	cCodigo* codigo4 = new cCodigo("PC", "1231", 4, "b");
 	cCodigo* codigo5 = new cCodigo("PC", "1235", 5, "b");
-	//--------------------- imprimir codigos -------------------
-	cout << "codigo1: " << codigo1->to_string() << endl;
-	cout << "codigo2: " << codigo2->to_string() << endl;
-	cout << "codigo3: " << codigo3->to_string() << endl;
-	cout << "codigo4: " << codigo4->to_string() << endl;
-	cout << "codigo5: " << codigo5->to_string() << endl;
-	cout << endl;
-	//----------------------------------------------------------
-	//-------------------- crendo los pasajeros----------------
+	     //--------------------- imprimir codigos -------------------
+	codigo1->imprimir();
+	codigo2->imprimir();
+	codigo3->imprimir();
+	codigo4->imprimir();
+	codigo5->imprimir();
+//-------------------- crendo los pasajeros----------------
 
 	Cturista* pasajero1 = new Cturista("lucho", "1234", EnumPrivilegios::turista, codigo1);
 	Cejecutivo* pasajero2 = new Cejecutivo("jose", "1233", EnumPrivilegios::ejecutivo, codigo2);
