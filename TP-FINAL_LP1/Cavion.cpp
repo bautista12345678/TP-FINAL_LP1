@@ -41,10 +41,10 @@ Cavion::~Cavion()
 	return n_eventos;
 }*/
 
-string* Cavion::getListaEventos()
+/*string* Cavion::getListaEventos()
 {
 	return ListaEventos;
-}
+}*/
 
 clista<Cpasajero>* Cavion::getListaDePasajeros()
 {
