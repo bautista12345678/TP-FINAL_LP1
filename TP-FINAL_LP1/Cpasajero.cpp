@@ -44,18 +44,18 @@ EnumEstadoDeDescompensacion Cpasajero::getEstado()
 	return 	Descompensacion;
 }
 
-void Cpasajero::PedirAyuda(Cazafata *a)
+bool Cpasajero::PedirAyuda(Cazafata *a)
 {
 	llamarAzafata(a);
 	if (a->getDisponibilidad() == true)
 	{
 		Descompensacion = EnumEstadoDeDescompensacion::SaludRegular;
-		for (int i = 0; i < 1000; i++)
-		{
-			if(a->getListaEventos()[i]=="")
-		}
+		return true;
 	}
-	
+	else
+	{
+		return false;
+	}
 }
 
 void Cpasajero::terminarAyuda(Cazafata* a)
@@ -123,14 +123,17 @@ bool Cpasajero::getBaño()
 {
 	return Baño;
 }
-void Cpasajero::pedirBebida(Cazafata* a)
+bool Cpasajero::pedirBebida(Cazafata* a)
 {
 	
-		this->llamarAzafata(a);
+	if (llamarAzafata(a) == true)
+	{
 		a->llevarBebida();
 		Bebida = true;
 		a->setDisponibilidad(true);
-	
+		return true;
+	}
+	else { return false; }
 }
 
 void Cpasajero::terminarBeber()
@@ -138,15 +141,18 @@ void Cpasajero::terminarBeber()
 	Bebida = false;
 }
 
-void Cpasajero::pedirComida(Cazafata* a)
+bool Cpasajero::pedirComida(Cazafata* a)
 {
 
-		this->llamarAzafata(a);
-		a->llevarComida();
-		Comida = true;
-		a->setDisponibilidad(true);
+	if (llamarAzafata(a) == true)
+	{
 	
-	
+	a->llevarComida();
+	Comida = true;
+	a->setDisponibilidad(true);
+	return true;
+	}
+	else { return false; }
 
 }
 
@@ -175,22 +181,26 @@ void Cpasajero::despertarse()
 	Dormir = false;
 }
 
-void Cpasajero::llamarAzafata(Cazafata* a)
+bool Cpasajero::llamarAzafata(Cazafata* a)
 {
 	if (a->getDisponibilidad() == true) {
 		a->AtenderLlamados();
+		return true;
 	}
 	else
 	{
+	
 		cout << "esta ocupada" << endl;
+		return false;
 	}
 
 }
 
-void Cpasajero::recibirMensaje(Cazafata* a)
+bool Cpasajero::recibirMensaje(Cazafata* a)
 {
-
+	
 	cout << "mensaje recibido:" << a->realizarAviso()<< endl;
+	return true;
 }
 
 Casiento* Cpasajero::getAsiento()

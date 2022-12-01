@@ -9,6 +9,7 @@ Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasa
 	listaCodigos = _listaCodigos;
 	NumeroDeAsiento = n;
 	ListaAsientos = _ListaAsientos;
+	n_eventos = 0;
 }
 
 Cavion::~Cavion()
@@ -53,6 +54,69 @@ clista<Cpersona>* Cavion::getListaCompleta()
 clista<Casiento>* Cavion::getListaAsientos()
 {
 	return ListaAsientos;
+}
+
+
+void Cavion::agregar(Cazafata *a)
+{
+	string* aux1 = new string[n_eventos + 1];
+	for (int i = 0; i < n_eventos; i++)
+	{
+		aux1[i] = ListaEventos[i];
+    }
+	delete[] ListaEventos;
+	for (int j = 0; j < ListaDePasajeros->getcantidad(); j++)
+	{
+		if (ListaDePasajeros->getLista()[j]->PedirAyuda(a) == true)
+		{
+			string* aux1 = new string[n_eventos + 1];
+			for (int i = 0; i < n_eventos; i++)
+			{
+				aux1[i] = ListaEventos[i];
+			}
+			string y = ListaDePasajeros->getLista()[j]->getnombre()+"pidio ayuda";
+				aux1[n_eventos + 1] = y;
+				ListaEventos = aux1;
+				delete aux1;
+		}
+		if (ListaDePasajeros->getLista()[j]->pedirBebida(a) == true)
+		{
+			string* aux2 = new string[n_eventos + 1];
+			for (int i = 0; i < n_eventos; i++)
+			{
+				aux2[i] = ListaEventos[i];
+			}
+			string y = ListaDePasajeros->getLista()[j]->getnombre() + "pidio bebida";
+			aux1[n_eventos + 1] = y;
+			ListaEventos = aux2;
+			delete aux2;
+		}
+		if (ListaDePasajeros->getLista()[j]->pedirComida(a) == true)
+		{
+			string* aux3 = new string[n_eventos + 1];
+			for (int i = 0; i < n_eventos; i++)
+			{
+				aux3[i] = ListaEventos[i];
+			}
+			string y = ListaDePasajeros->getLista()[j]->getnombre() + "pidio comida";
+			aux1[n_eventos + 1] = y;
+			ListaEventos = aux3;
+			delete aux3;
+		}
+		if (ListaDePasajeros->getLista()[j]->recibirMensaje(a) == true)
+		{
+			string* aux4 = new string[n_eventos + 1];
+			for (int i = 0; i < n_eventos; i++)
+			{
+				aux4[i] = ListaEventos[i];
+			}
+			string y = ListaDePasajeros->getLista()[j]->getnombre() + "recibio mensaje";
+			aux1[n_eventos + 1] = y;
+			ListaEventos = aux4;
+			delete aux4;
+		}
+	}
+	
 }
 
 void Cavion::comparaAmbasListas(clista<Cpasajero>* ListaP)

@@ -4,10 +4,7 @@ int Cazafata::eventos = 0;
 Cazafata::Cazafata(string _nombre, string _dni, bool _Disponibilidad):Cpersona(_nombre, _dni)
 {
 	Disponibilidad = _Disponibilidad;
-	for (int i = 0; i < 1000; i++)
-	{
-	   ListaEventos[i] = "NULL";
-	}
+	
 }
 Cazafata::~Cazafata()
 {
@@ -86,10 +83,7 @@ bool Cazafata::azafataOcupada()
 		return false;
 	}
 }
-string Cazafata::getListaEventos()
-{
-	return ListaEventos[1000];
-}
+
 
 string Cazafata::to_string()
 {
