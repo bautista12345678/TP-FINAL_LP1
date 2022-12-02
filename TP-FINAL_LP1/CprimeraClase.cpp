@@ -6,6 +6,8 @@ CprimeraClase::CprimeraClase(string _nombre, string _dni, EnumPrivilegios p, cCo
 
 	Masaje = false;
 	Champagne = false;
+	cont_masaje = 0;
+	cont_cham = 0;
 }
 
 CprimeraClase::~CprimeraClase()
@@ -16,10 +18,21 @@ CprimeraClase::~CprimeraClase()
 
 
 
-void CprimeraClase::pedirMasaje()
+bool CprimeraClase::pedirMasaje(Cazafata *a)
 {
-	cout << " el pasajero recibe un masaje. " << endl;
-	this->Masaje = true;
+
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
+		cout << " el pasajero recibe un masaje. " << endl;
+		this->Masaje = true;
+		cont_masaje++;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 void CprimeraClase::terminarMasaje()
@@ -28,10 +41,30 @@ void CprimeraClase::terminarMasaje()
 	this->Masaje = false;
 }
 
-void CprimeraClase::pedirChampagne()
+int CprimeraClase::getcont_masaje()
 {
-	cout << "el pasajero pide un champagne. " << endl;
-	this->Champagne = true;
+	return cont_masaje;
+}
+
+int CprimeraClase::getcont_cham()
+{
+	return cont_cham;
+}
+
+bool CprimeraClase::pedirChampagne(Cazafata *a)
+{
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
+		cout << "el pasajero pide un champagne. " << endl;
+		this->Champagne = true;
+		cont_cham++;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 void CprimeraClase::terminarChampagne()

@@ -2,9 +2,13 @@
 #include <sstream>
 Cpiloto::Cpiloto(string _nombre, string _dni) :Cpersona(_nombre, _dni)
 {
-
+	cont_beb = 0;
+	cont_com = 0;
+	cont_anuncio=0;
+	 cont_pasaj=0;
 	comida = false;
 	bebida = false;
+
 }
 
 Cpiloto::~Cpiloto()
@@ -21,6 +25,26 @@ void Cpiloto::setbebida(bool _b)
 	bebida = _b;
 }
 
+int Cpiloto::getcont_anuncio()
+{
+	return cont_anuncio;
+}
+
+int Cpiloto::getcont_pasaj()
+{
+	return cont_pasaj;
+}
+
+int Cpiloto::getcont_beb()
+{
+	return cont_beb;
+}
+
+int Cpiloto::getcont_com()
+{
+	return cont_com;
+}
+
 void Cpiloto::pilotear()
 {
 	Pilotear = true;
@@ -33,32 +57,75 @@ void Cpiloto::AnuncioAltaVoz(string msg, Cazafata* a)
 
 }
 
-void Cpiloto::pedirAnuncio(string m, Cazafata* a)
+bool Cpiloto::pedirAnuncio(string m, Cazafata* a)
 {
-	this->llamarAzafata(a);
-	a->realizarAnuncio(m);
-}
-
-void Cpiloto::pedirAviso(Cpasajero* p, string msg, Cazafata* a)
-{
-	this->llamarAzafata(a);
-	a->realizarAviso();
-}
-
-void Cpiloto::pedirBebida(Cazafata* a)
-{
-	
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
 		this->llamarAzafata(a);
-		a->llevarBebidaPiloto();
-		setbebida(true);//?????
+		a->realizarAnuncio(m);
+		cont_anuncio++;
+
+	}
+	else
+	{
+		return false;
+	}
 	
 }
 
-void Cpiloto::pedirComida(Cazafata* a)
+bool Cpiloto::pedirAviso(Cpasajero* p, string msg, Cazafata* a)
 {
-	this->llamarAzafata(a);
-		a->llevarComidaPiloto();
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
+		this->llamarAzafata(a);
+		a->realizarAviso();
+		cont_pasaj++;
+
+	}
+	else
+	{
+		return false;
+	}
 	
+}
+
+bool Cpiloto::pedirBebida(Cazafata* a)
+{
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
+		a->llevarBebidaPiloto();
+		setbebida(true);
+		cont_beb++;
+
+	}
+	else
+	{
+		return false;
+	}
+		
+		
+	
+}
+
+bool Cpiloto::pedirComida(Cazafata* a)
+{
+	llamarAzafata(a);
+	if (a->getDisponibilidad() == true)
+	{
+		a->llevarComidaPiloto();
+		comida = true;
+		cont_com++;
+
+	}
+	else
+	{
+		return false;
+	}
+		
+		
 
 }
 

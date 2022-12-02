@@ -1,6 +1,6 @@
 #include "Cazafata.h"
 #include <sstream>
-int Cazafata::eventos = 0;
+//int Cazafata::eventos = 0;
 Cazafata::Cazafata(string _nombre, string _dni, bool _Disponibilidad):Cpersona(_nombre, _dni)
 {
 	Disponibilidad = _Disponibilidad;
@@ -20,10 +20,10 @@ bool Cazafata::getDisponibilidad()
 	return Disponibilidad;
 }
 
-int Cazafata::getEventos()
+/*int Cazafata::getEventos()
 {
 	return eventos;
-}
+}*/
 
 void Cazafata::atenderPaciente()
 {
@@ -71,7 +71,7 @@ void Cazafata::AtenderLlamados()
 	if (azafataOcupada() == true)
 	{
 	Disponibilidad = false;
-	eventos = eventos + 1;
+	//eventos = eventos + 1;
     }
 }
 

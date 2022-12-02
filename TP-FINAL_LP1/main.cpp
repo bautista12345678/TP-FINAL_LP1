@@ -146,9 +146,8 @@ int main() {
 	piloto1->AnuncioAltaVoz("estamos proximos a despegar.", azafata1);
 	azafata1->setDisponibilidad(true);
 	piloto1->pedirBebida(azafata1);
-	piloto1->setbebida(false);
-	azafata1->setDisponibilidad(false);
 	piloto1->pilotear();
+	piloto1->imprimir();
 	//--------------------------- comisario ------------------------
 	comisario1->comisario_pregunta();
 	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == false)
@@ -165,37 +164,70 @@ int main() {
 	if (comisario1->preguntarSiTodoEstaEnOrden(avion1) == true)
 	{
 		cout << "el pasajero esta encarcelado" << endl;
+		
+		//avion1->getprision()->listar();
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
 	}
 
 
-	pasajero4->pedirChampagne();
-
-	cout << "cantidad de eventos: " << azafata1->getEventos() + azafata2->getEventos() << endl;
-	for (int i = 0; i < avion1->getListaDePasajeros()->getcantidad(); i++)
+	pasajero4->pedirChampagne(azafata1);
+	pasajero4->terminarChampagne();
+	//cout << "cantidad de eventos: " << azafata1->getEventos() + azafata2->getEventos() << endl;
+	for (int i = 0; i < avion1->getListaCompleta()->getcantidad(); i++)
 	{
-		cout << " eventos del pasajero n " << i << endl;
-		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << " pidio ayuda " << avion1->getListaDePasajeros()->getLista()[i]->getcont_ayuda() << " veces "<<endl;
-		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << " pidio comida " << avion1->getListaDePasajeros()->getLista()[i]->getcont_comida() << " veces " << endl;
-		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << " pidio bebida " << avion1->getListaDePasajeros()->getLista()[i]->getcont_bebida() << " veces " << endl;
-		cout << avion1->getListaDePasajeros()->getLista()[i]->getnombre() << " recibio mensajes " << avion1->getListaDePasajeros()->getLista()[i]->getcont_mensaje() << " veces " << endl;
+		
+		Cturista* turista_aux = dynamic_cast <Cturista*> (avion1->getListaCompleta()->getLista()[i]);
+		if (turista_aux != nullptr) {
+			cout << " eventos de "<< avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio ayuda " << turista_aux->getcont_ayuda() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio comida " << turista_aux->getcont_comida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio bebida " << turista_aux->getcont_bebida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " recibio mensajes " << turista_aux->getcont_mensaje() << " veces " << endl;
+		}
+
+
+		Cejecutivo* eje_aux = dynamic_cast <Cejecutivo*> (avion1->getListaCompleta()->getLista()[i]);
+		if (eje_aux != nullptr) {
+			cout << " eventos de " << avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio ayuda " << eje_aux->getcont_ayuda() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio comida " << eje_aux->getcont_comida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio bebida " << eje_aux->getcont_bebida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " recibio mensajes " << eje_aux->getcont_mensaje() << " veces " << endl;
+		}
+
+
+		CprimeraClase* primerclase_aux = dynamic_cast <CprimeraClase*> (avion1->getListaCompleta()->getLista()[i]);
+		if (primerclase_aux != nullptr) {
+			cout << " eventos de " << avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio ayuda " << primerclase_aux->getcont_ayuda() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio comida " << primerclase_aux->getcont_comida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio bebida " << primerclase_aux->getcont_bebida() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " recibio mensajes " << primerclase_aux->getcont_mensaje() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio champagn " << primerclase_aux->getcont_cham() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio masaje " << primerclase_aux->getcont_masaje() << " veces " << endl;
+		}
+
+
+		Cpiloto* piloto_aux = dynamic_cast <Cpiloto*> (avion1->getListaCompleta()->getLista()[i]);
+		if (piloto_aux != nullptr) {
+			cout << " eventos de " << avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio comida " << piloto_aux->getcont_com() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio bebida " << piloto_aux->getcont_beb()<< " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " dio mensajes " << piloto_aux->getcont_pasaj() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " dio anuncios " << piloto_aux->getcont_anuncio() << " veces " << endl;
+
+		}
+
+
+	}
+
+
+
+
+
 	
-
-
-	}
-
-
-
-
-
-	/*avion1->getn_eventos();
-	for (int i = 0; i < avion1->getn_eventos(); i++)
-	{
-		cout<<avion1->getListaEventos()[i]<<endl;
-	}
-	*/
 
 
 	return 0;

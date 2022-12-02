@@ -9,13 +9,13 @@ class Cazafata :public  Cpersona
 {
 private:
 	bool Disponibilidad;
-	static int eventos;
+	//static int eventos;
 public:
 	Cazafata(string _nombre, string _dni, bool _Disponibilidad);
 	~Cazafata();
 	void setDisponibilidad(bool _Disponibilidad);
 	bool getDisponibilidad();
-	int getEventos();
+	//int getEventos();
 	void atenderPaciente();
 	void llevarComida();
 	void llevarBebida();
