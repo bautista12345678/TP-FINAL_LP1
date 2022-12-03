@@ -3,10 +3,16 @@
 Ccomisario::Ccomisario(string _nombre, string _dni):Cpersona(_nombre, _dni)
 {
     TodoEnOrden = true;
+    cont_encarcelados = 0;
 }
 
 Ccomisario::~Ccomisario()
 {
+}
+
+int Ccomisario::getcont_encarcelados()
+{
+    return cont_encarcelados;
 }
 
 
@@ -37,6 +43,7 @@ bool Ccomisario::someterPasajero(Cpasajero* p)
 void Ccomisario::encerrapasajero(Cavion* a, Cpasajero* p)
 {
     (*a->getprision()) + (p);
+    cont_encarcelados++;
 }
 
 string Ccomisario::to_string()

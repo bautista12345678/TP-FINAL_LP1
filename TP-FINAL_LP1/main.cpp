@@ -219,8 +219,21 @@ int main() {
 			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " dio anuncios " << piloto_aux->getcont_anuncio() << " veces " << endl;
 
 		}
+		Ccopiloto* copiloto_aux = dynamic_cast <Ccopiloto*> (avion1->getListaCompleta()->getLista()[i]);
+		if (copiloto_aux != nullptr) {
+			cout << " eventos de " << avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio comida " << copiloto_aux->getcont_com() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " pidio bebida " << copiloto_aux->getcont_beb() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " dio mensajes " << copiloto_aux->getcont_pasaj() << " veces " << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " dio anuncios " << copiloto_aux->getcont_anuncio() << " veces " << endl;
 
+		}
 
+		Ccomisario* c_aux = dynamic_cast <Ccomisario*> (avion1->getListaCompleta()->getLista()[i]);
+		if (c_aux != nullptr) {
+			cout << " eventos de " << avion1->getListaCompleta()->getLista()[i]->getnombre() << endl;
+			cout << avion1->getListaCompleta()->getLista()[i]->getnombre() << " encarcelo pasajeros  " << c_aux->getcont_encarcelados() << " veces " << endl;
+		}
 	}
 
 
