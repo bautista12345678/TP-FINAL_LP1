@@ -10,6 +10,16 @@ Ccomisario::~Ccomisario()
 {
 }
 
+Casiento* Ccomisario::getasientocom()
+{
+    return asientocom;
+}
+
+void Ccomisario::setasientocom(Cavion *avi)
+{
+    asientocom = avi->asientocomisario();
+}
+
 int Ccomisario::getcont_encarcelados()
 {
     return cont_encarcelados;
@@ -51,6 +61,7 @@ string Ccomisario::to_string()
     stringstream ss;
     ss << "nombre del comisario: " << this->getnombre() << endl;
     ss << "dni: " << this->getdni() << endl;
+    ss << "asiento de comisario: " << this->getasientocom() << endl;
     return ss.str();
 }
 

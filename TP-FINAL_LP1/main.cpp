@@ -125,8 +125,8 @@ int main() {
 	{
 		cout << e.what() << endl;
 	}
-
-	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1,ListaAsientos,30);
+	clista<Cpasajero>* prision = new clista<Cpasajero>(10);
+	Cavion* avion1 = new Cavion(ListaCompleta, listaDePasajeros1, listaCodigos1, comisario1,ListaAsientos,30,prision);
 	avion1->getListaCompleta()->listar();
 	//-----------------------------------------------------------
 	cout << "llamomos a una azafata que esta no disponilble" << endl;
@@ -165,12 +165,12 @@ int main() {
 	{
 		cout << "el pasajero esta encarcelado" << endl;
 		
-		//avion1->getprision()->listar();
+		avion1->getprision()->listar();
 	}
 	else {
 		cout << "no hay un nuevo pasajero sometido y encarcelado. " << endl;
 	}
-
+	comisario1->imprimir();
 
 	pasajero4->pedirChampagne(azafata1);
 	pasajero4->terminarChampagne();

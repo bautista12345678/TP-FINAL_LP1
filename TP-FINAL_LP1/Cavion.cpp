@@ -2,7 +2,7 @@
 int Cavion::cantidadDeAsientos = 0;
 int Cavion::cont_id = 0;
 //int Cavion::n_eventos = 0;
-Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n) :id(cont_id + 1)
+Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n, clista<Cpasajero>* _prision) :id(cont_id + 1)
 {
 	marshal = m;
 	ListaCompleta = _ListaCompleta;
@@ -10,6 +10,7 @@ Cavion::Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasa
 	listaCodigos = _listaCodigos;
 	NumeroDeAsiento = n;
 	ListaAsientos = _ListaAsientos;
+	prision = _prision;
 	
 }
 
@@ -45,6 +46,34 @@ Cavion::~Cavion()
 {
 	return ListaEventos;
 }*/
+
+Casiento* Cavion::asientocomisario()
+{
+	int cont = 0;
+	for (int i = 0; i < ListaAsientos->getcantidad(); i++)
+	{
+		if (ListaAsientos->getLista()[i] == NULL)
+		{
+			cont++;
+		}
+	}
+	clista<Casiento>* aux = new clista<Casiento>(cont);
+	Casiento* randasiento;
+	for (int i = 0; i < ListaAsientos->getcantidad(); i++)
+	{
+		
+		if (ListaAsientos->getLista()[i]==NULL)
+		{
+			for (int k = 0; i < cont; k++) {
+				aux->getLista()[k] = ListaAsientos->getLista()[i];
+					
+			}
+		}
+	}
+	randasiento = aux->getLista()[rand() % cont];
+
+	return randasiento;
+}
 
 clista<Cpasajero>* Cavion::getListaDePasajeros()
 {

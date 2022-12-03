@@ -2,7 +2,7 @@
 #include<string>
 #include"Cpasajero.h"
 #include "clista.h"
-#include "Cazafata.h"
+
 class Ccomisario;
 using namespace std;
 
@@ -25,12 +25,14 @@ private:
 	int NumeroDeAsiento;
 	//string* ListaEventos;
 	//static int n_eventos;
-	Ccomisario* marshal;
+	Ccomisario * marshal;
+	
 public:
-	Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n);
+	Cavion(clista<Cpersona>* _ListaCompleta, clista<Cpasajero>* _ListaDePasajeros, clista<cCodigo>* _listaCodigos, Ccomisario* m, clista<Casiento>* _ListaAsientos,int n, clista<Cpasajero>* _prision);
 	~Cavion();
 	//int getn_eventos();
 	//string *getListaEventos();
+	Casiento* asientocomisario();
 	clista<Cpasajero>* getListaDePasajeros();
 	clista<cCodigo>* getlistaCodigos();
 	clista<Cpasajero>* getprision();
@@ -43,7 +45,6 @@ public:
 	void BajarAlAvion(Cpasajero* p);
 	void imprimirPasajerosAbordo();
 	void imprimircantidadDePasajerosAbordo();
-	
 	Ccomisario* getmarshal();
 };
 
