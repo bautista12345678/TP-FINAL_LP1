@@ -89,3 +89,19 @@ void CprimeraClase::imprimir()
 	cout << to_string() << endl;
 }
 
+
+ostream& CprimeraClase::operator<<(ostream& os)
+{
+	os << "nombre: " << getnombre() << endl
+		<< "dni: " << getdni() << endl << "codigo: " << getcodigo() << endl;
+	return os;
+}
+
+istream& CprimeraClase::operator>>(istream& is)
+{
+	string aux;
+	is >> aux;
+	this->setnombre(aux);
+	return is;
+
+}

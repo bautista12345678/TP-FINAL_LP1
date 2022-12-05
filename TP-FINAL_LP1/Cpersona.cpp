@@ -20,6 +20,11 @@ string Cpersona::getnombre()
 	return nombre;
 }
 
+void Cpersona::setnombre(string n)
+{
+	nombre = n;
+}
+
 string Cpersona::getdni()
 {
 	return dni;

@@ -39,7 +39,7 @@ public:
 	int getcont_mensaje();
 	int getcont_ayuda();
 	bool getBuenaConducta();
-	void someter();
+	 void someter();
 	void setconduta(bool _conducta);
 	cCodigo* getcodigo();
 	EnumEstadoDeDescompensacion getEstado();
@@ -64,5 +64,7 @@ public:
 	Casiento *getAsiento();
 	virtual string to_string() = 0;
 	virtual void imprimir() = 0;
+	ostream& operator<<(ostream& os);
+	istream& operator>>(istream& is);
 };
 

@@ -18,5 +18,7 @@ public:
 	void terminarChampagne();
 	string to_string();
 	void imprimir();
+	ostream& operator<<(ostream& os);
+	istream& operator>>(istream& is);
 };
 

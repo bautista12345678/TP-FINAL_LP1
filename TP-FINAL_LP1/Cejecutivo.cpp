@@ -46,3 +46,20 @@ void Cejecutivo::imprimir()
 	cout << to_string() << endl;
 }
 
+
+
+ostream& Cejecutivo::operator<<(ostream& os)
+{
+	os << "nombre: " << getnombre() << endl
+		<< "dni: " << getdni() << endl << "codigo: " << getcodigo() << endl;
+	return os;
+}
+
+istream& Cejecutivo::operator>>(istream& is)
+{
+	string aux;
+	is >> aux;
+	this->setnombre(aux);
+	return is;
+
+}

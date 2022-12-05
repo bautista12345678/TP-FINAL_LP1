@@ -20,6 +20,7 @@ public:
 	Cpersona(const Cpersona&);
 	~Cpersona();
 	string getnombre();
+	void setnombre(string n);
 	string getdni();
 	virtual void imprimir() = 0;
 	virtual string to_string() = 0;

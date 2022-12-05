@@ -26,3 +26,21 @@ void Cturista::imprimir()
 {
 	cout << to_string() << endl;
 }
+
+
+
+ostream& Cturista::operator<<(ostream& os)
+{
+	os << "nombre: " << getnombre() << endl
+		<< "dni: " << getdni() << endl << "codigo: " << getcodigo() << endl;
+	return os;
+}
+
+istream& Cturista::operator>>(istream& is)
+{
+	string aux;
+	is >> aux;
+	this->setnombre(aux);
+	return is;
+
+}

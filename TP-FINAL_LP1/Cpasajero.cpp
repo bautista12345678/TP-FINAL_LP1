@@ -48,7 +48,7 @@ bool Cpasajero::getBuenaConducta()
     return BuenaConducta;
 }
 
-void Cpasajero::someter()
+ void Cpasajero::someter()
 {
     sometido = true;
 }
@@ -235,5 +235,21 @@ bool Cpasajero::recibirMensaje(Cazafata* a)
 Casiento* Cpasajero::getAsiento()
 {
 	return Asiento;
+}
+
+ostream& Cpasajero::operator<<(ostream& os)
+{
+	os<< "nombre: " << getnombre() << endl
+	 << "dni: " << getdni() << endl << "codigo: " <<getcodigo() << endl;
+	return os;
+}
+
+istream& Cpasajero::operator>>(istream& is)
+{
+	string aux;
+	is >> aux;
+	this->setnombre(aux);
+	return is;
+
 }
 
