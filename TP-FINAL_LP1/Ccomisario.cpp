@@ -4,6 +4,7 @@ Ccomisario::Ccomisario(string _nombre, string _dni):Cpersona(_nombre, _dni)
 {
     TodoEnOrden = true;
     cont_encarcelados = 0;
+    oculto = true;
 }
 
 Ccomisario::~Ccomisario()

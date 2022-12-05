@@ -7,6 +7,7 @@ private:
 	bool TodoEnOrden;
 	int cont_encarcelados;
 	Casiento *asientocom;
+	bool oculto;
 public:
 	Ccomisario(string _nombre, string _dni);
 	~Ccomisario();
